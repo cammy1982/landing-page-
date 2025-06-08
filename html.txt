@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Freelance Vibe Portfolio</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --accent: #fbbf24;
+      --bg: #f8fafc;
+      --dark: #1e293b;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      color: var(--dark);
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .hero {
+      background: var(--primary);
+      color: var(--white);
+      padding: 4rem 1rem 3rem 1rem;
+      text-align: center;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.07);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.93;
+    }
+    .cta {
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 1.1rem;
+      padding: 0.9em 2.4em;
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 2px 16px rgba(251,191,36,0.07);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cta:hover { background: #ffe48c; }
+    section {
+      margin-bottom: 2.5rem;
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,41,59,0.04);
+      padding: 2rem;
+    }
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .features, .steps, .testimonials, .faq-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+    }
+    .feature, .step, .testimonial, .faq {
+      flex: 1 1 240px;
+      background: var(--bg);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      min-width: 220px;
+      box-shadow: 0 1px 6px rgba(30,41,59,0.06);
+    }
+    .feature strong, .step strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .about-me {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .about-me img {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+    .about-me-text {
+      flex: 1;
+    }
+    .demo-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .demo-screenshot {
+      width: 100%;
+      max-width: 350px;
+      height: 180px;
+      background: linear-gradient(120deg, #2563eb22, #fbbf2411);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .faq {
+      cursor: pointer;
+      transition: background 0.15s;
+      position: relative;
+    }
+    .faq.open { background: #e0e7ff; }
+    .faq-question {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .faq-toggle {
+      font-size: 1.1em;
+      color: var(--primary);
+      margin-right: 0.5em;
+    }
+    .faq-answer {
+      display: none;
+      font-size: 0.99em;
+      color: #444;
+      margin-top: 0.5em;
+    }
+    .faq.open .faq-answer { display: block; }
+    .section-cta {
+      text-align: center;
+      margin: 3rem 0 1.5rem 0;
+    }
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 1em;
+      padding: 2rem 1rem 1rem 1rem;
+    }
+    .footer-links {
+      margin: 0.6rem 0 0.4rem 0;
+      display: flex;
+      gap: 1.2em;
+      justify-content: center;
+      font-size: 0.96em;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media (max-width: 720px) {
+      .features, .steps, .testimonials, .faq-list {
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .about-me { flex-direction: column; text-align: center; }
+      .about-me img { margin-bottom: 0.6em; }
+      .container { padding: 1rem 0.3rem; }
+      section { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Boost jouw business met <span style="color:#fbbf24">Vibe Coding</span></h1>
+    <p>
+      Snel, professioneel en zonder gedoe jouw eigen website – powered by AI & no-code.
+    </p>
+    <button class="cta" onclick="scrollToCTA()">Start jouw project</button>
+  </div>
+
+  <main class="container">
+
+    <!-- Problem & Solution -->
+    <section>
+      <h2>Herken je dit?</h2>
+      <p>
+        <strong>Wil je online zichtbaar zijn, maar heb je geen tijd of zin om te coderen?</strong><br>
+        Met vibe coding bouw ik in enkele uren jouw perfecte landingspagina – zonder frustratie, mét resultaat.
+      </p>
+    </section>
+
+    <!-- Features -->
+    <section>
+      <h2>Waarom kiezen voor mijn vibe-code aanpak?</h2>
+      <div class="features">
+        <div class="feature">
+          <strong>Bliksemsnel online</strong>
+          In één dag live – zonder tech-hassle.
+        </div>
+        <div class="feature">
+          <strong>100% responsive</strong>
+          Op elk device een perfecte presentatie.
+        </div>
+        <div class="feature">
+          <strong>Visueel & interactief</strong>
+          Jij bepaalt de vibe – ik lever het direct zichtbaar op.
+        </div>
+        <div class="feature">
+          <strong>Koppeling met tools</strong>
+          Nieuwsbrief, analytics & contact direct geïntegreerd.
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section>
+      <h2>Hoe werkt het?</h2>
+      <div class="steps">
+        <div class="step">
+          <strong>1. Jouw idee</strong>
+          Vertel wat je wilt – in je eigen woorden of voorbeelden.
+        </div>
+        <div class="step">
+          <strong>2. Vibe coding</strong>
+          Ik zet je wens razendsnel om in een werkende site met AI.
+        </div>
+        <div class="step">
+          <strong>3. Samen finetunen</strong>
+          Je ziet direct resultaat en stuurt makkelijk bij.
+        </div>
+        <div class="step">
+          <strong>4. Live & klaar</strong>
+          Domein koppelen, e-mail en je site staat live!
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section>
+      <h2>Klant ervaringen</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          “Binnen een halve dag was mijn pagina online! Vibe coding is echt een uitkomst.”<br>
+          <small>– Sarah, Coach</small>
+        </div>
+        <div class="testimonial">
+          “Ik hoefde geen regel code te zien, maar heb nu een site die precies bij me past.”<br>
+          <small>– Jamal, Freelancer</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo/Preview -->
+    <section>
+      <h2>Voorbeeld of demo?</h2>
+      <div class="demo-preview">
+        <div class="demo-screenshot">[Hier komt jouw portfolio of een preview]</div>
+        <button class="cta" onclick="alert('Demo coming soon!')">Bekijk live demo</button>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section>
+      <h2>Over mij</h2>
+      <div class="about-me">
+        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Jouw foto">
+        <div class="about-me-text">
+          <strong>Hi, ik ben [Jouw Naam]!</strong><br>
+          Ik help ondernemers & zzp’ers aan een vliegende online start met vibe coding.<br>
+          Met een achtergrond in frontend & AI bouw ik razendsnel en met oog voor stijl.
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <h2>Veelgestelde vragen</h2>
+      <div class="faq-list">
+        <div class="faq">
+          <div class="faq-question"><span class="faq-toggle">+</span> Werkt mijn site ook op mobiel?</div>
+          <div class="faq-answer">Absoluut, alle pagina’s zijn standaard 100% responsive voor mobiel en tablet.</div>
+        </div>
+        <div class="faq">
+          <div class="faq-question"><span class="faq-toggle">+</span> Wat kost het?</div>
+          <div class="faq-answer">Elke opdracht is maatwerk. Richtprijs: vanaf €350 per landingspagina. Na een kennismaking krijg je een vast voorstel.</div>
+        </div>
+        <div class="faq">
+          <div class="faq-question"><span class="faq-toggle">+</span> Kan ik later nog iets aanpassen?</div>
+          <div class="faq-answer">Zeker! Kleine aanpassingen zijn altijd inbegrepen. Ook kun je extra features laten toevoegen.</div>
+        </div>
+        <div class="faq">
+          <div class="faq-question"><span class="faq-toggle">+</span> Hoe snel kan mijn site live?</div>
+          <div class="faq-answer">Binnen 1 tot 3 werkdagen na akkoord staat je site online!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repeated CTA -->
+    <div class="section-cta" id="contact">
+      <button class="cta" onclick="alert('Laat hier je gegevens achter – ik neem direct contact op!')">Start jouw vibe-pagina</button>
+      <div style="margin-top: 1rem; color:#64748b;">
+        Of mail direct: <a href="mailto:jouw@email.com" style="color: #2563eb; text-decoration: underline;">jouw@email.com</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#contact">Contact</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Privacybeleid</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    &copy; 2025 [Jouw Naam] – Freelance Vibe Coding. All rights reserved.
+  </footer>
+
+  <script>
+    // Smooth scroll to CTA
+    function scrollToCTA() {
+      document.getElementById('contact').scrollIntoView({behavior: "smooth"});
+    }
+    // FAQ toggle
+    document.querySelectorAll('.faq').forEach(faq => {
+      faq.addEventListener('click', function() {
+        this.classList.toggle('open');
+        // Switch + to - in toggle
+        const toggle = this.querySelector('.faq-toggle');
+        toggle.textContent = this.classList.contains('open') ? '-' : '+';
+      });
+    });
+  </script>
+
+</body>
+</html>
